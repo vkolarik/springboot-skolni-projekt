@@ -1,0 +1,14 @@
+### Get All Tracks
+GET http://localhost:8090/tracks
+
+### Get Track by ID
+GET http://localhost:8090/tracks/track123
+
+### Get average popularity by genre
+GET http://localhost:8090/tracks/stats/average-popularity-by-genre
+
+### Get average duration by genre
+GET http://localhost:8090/tracks/stats/average-duration-by-genre
+
+### Get top tracks by genre
+GET http://localhost:8090/tracks/stats/top-tracks-by-genre?limit=5 

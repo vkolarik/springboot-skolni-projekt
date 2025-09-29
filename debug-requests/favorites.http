@@ -1,0 +1,36 @@
+### Create Favorite
+POST http://localhost:8090/favorites
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "trackId": "track123",
+    "rating": 5,
+    "comment": "Great song!",
+    "isPublic": true
+}
+
+### Get All Favorites
+GET http://localhost:8090/favorites
+
+### Get Favorite by ID
+GET http://localhost:8090/favorites/1
+
+### Update Favorite
+PUT http://localhost:8090/favorites/1
+Content-Type: application/json
+
+{
+    "rating": 4,
+    "comment": "Updated comment",
+    "isPublic": false
+}
+
+### Delete Favorite
+DELETE http://localhost:8090/favorites/1
+
+### Get average rating by track
+GET http://localhost:8090/favorites/stats/average-rating-by-track
+
+### Get favorite count by track
+GET http://localhost:8090/favorites/stats/count-by-track 

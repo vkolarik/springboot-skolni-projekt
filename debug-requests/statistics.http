@@ -1,0 +1,14 @@
+### Get User Engagement Metrics
+GET http://localhost:8090/statistics/engagement
+
+### Get Track Popularity Metrics
+GET http://localhost:8090/statistics/popularity
+
+### Get User Preferences
+GET http://localhost:8090/statistics/preferences
+
+### Get Trending Statistics
+GET http://localhost:8090/statistics/trending
+
+### Get User Activity Timeline
+GET http://localhost:8090/statistics/activity-timeline 

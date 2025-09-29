@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet id="1" author="xkolari1">
+        <createTable tableName="users">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="track">
+            <column name="track_id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="artists" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="album_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="track_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="popularity" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration_ms" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="explicit" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="danceability" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="energy" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="loudness" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mode" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="speechiness" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="acousticness" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instrumentalness" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="liveness" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valence" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tempo" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_signature" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="track_genre" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="favorite">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="track_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="text"/>
+            <column name="is_public" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_played" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="xkolari1">
+        <addForeignKeyConstraint baseTableName="favorite"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_favorite_user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="favorite"
+                                 baseColumnNames="track_id"
+                                 constraintName="fk_favorite_track"
+                                 referencedTableName="track"
+                                 referencedColumnNames="track_id"/>
+    </changeSet>
+</databaseChangeLog> 

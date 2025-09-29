@@ -1,0 +1,39 @@
+### Create User
+POST http://localhost:8090/users
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "country": "USA"
+}
+
+### Get All Users
+GET http://localhost:8090/users
+
+### Get User by ID
+GET http://localhost:8090/users/1
+
+### Update User
+PUT http://localhost:8090/users/1
+Content-Type: application/json
+
+{
+    "username": "updateduser",
+    "firstName": "Updated",
+    "lastName": "User",
+    "email": "updated@example.com",
+    "country": "Canada"
+}
+
+### Delete User
+DELETE http://localhost:8090/users/1
+
+### Get users count by country
+GET http://localhost:8090/users/stats/count-by-country
+
+### Get average favorites by country
+GET http://localhost:8090/users/stats/average-favorites-by-country 
